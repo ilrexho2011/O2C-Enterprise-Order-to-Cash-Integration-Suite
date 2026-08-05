@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- XSD i lehtë për XML-in kanonik O2C (OrderCreate + OrderEvent). -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="urn:albsale:o2c:canonical:1.0"
+           xmlns="urn:albsale:o2c:canonical:1.0"
+           elementFormDefault="qualified">
+
+  <!-- ===================== ORDERS (Salt -> S/4) ===================== -->
+  <xs:element name="OrderCreate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Header">
+          <xs:complexType><xs:sequence>
+            <xs:element name="DocumentType" type="xs:string"/>
+            <xs:element name="CorrelationId" type="xs:string"/>
+            <xs:element name="SenderId" type="xs:string"/>
+            <xs:element name="OrderDate" type="xs:date"/>
+          </xs:sequence></xs:complexType>
+        </xs:element>
+        <xs:element name="Buyer">
+          <xs:complexType><xs:sequence>
+            <xs:element name="CustomerRef" type="xs:string"/>
+            <xs:element name="Name" type="xs:string" minOccurs="0"/>
+            <xs:element name="Email" type="xs:string" minOccurs="0"/>
+          </xs:sequence></xs:complexType>
+        </xs:element>
+        <xs:element name="Lines">
+          <xs:complexType><xs:sequence>
+            <xs:element name="Line" maxOccurs="unbounded">
+              <xs:complexType><xs:sequence>
+                <xs:element name="LineNo" type="xs:string"/>
+                <xs:element name="ProductRef" type="xs:string"/>
+                <xs:element name="Description" type="xs:string" minOccurs="0"/>
+                <xs:element name="Quantity" type="xs:decimal"/>
+                <xs:element name="Unit" type="xs:string"/>
+                <xs:element name="LineValue" type="xs:decimal"/>
+                <xs:element name="Currency" type="xs:string"/>
+              </xs:sequence></xs:complexType>
+            </xs:element>
+          </xs:sequence></xs:complexType>
+        </xs:element>
+        <xs:element name="Summary">
+          <xs:complexType><xs:sequence>
+            <xs:element name="TotalValue" type="xs:decimal"/>
+            <xs:element name="Currency" type="xs:string"/>
+          </xs:sequence></xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- ============ OrderEvent (ORDRSP / DESADV / INVOIC) ============ -->
+  <xs:element name="OrderEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Header">
+          <xs:complexType><xs:sequence>
+            <xs:element name="DocumentType" type="xs:string"/>
+            <xs:element name="CorrelationId" type="xs:string"/>
+            <xs:element name="S4OrderId" type="xs:string"/>
+            <xs:element name="Message" type="xs:string" minOccurs="0"/>
+          </xs:sequence></xs:complexType>
+        </xs:element>
+        <xs:element name="Reference">
+          <xs:complexType><xs:sequence>
+            <xs:element name="CustomerRef" type="xs:string"/>
+            <xs:element name="SaltOrderRef" type="xs:string"/>
+          </xs:sequence></xs:complexType>
+        </xs:element>
+        <!-- një prej tre blloqeve sipas DocumentType -->
+        <xs:choice>
+          <xs:element name="Confirmation">
+            <xs:complexType><xs:sequence>
+              <xs:element name="Status" type="xs:string"/>
+              <xs:element name="ConfirmedQuantity" type="xs:decimal"/>
+              <xs:element name="Unit" type="xs:string" minOccurs="0"/>
+              <xs:element name="ConfirmedDeliveryDate" type="xs:date" minOccurs="0"/>
+            </xs:sequence></xs:complexType>
+          </xs:element>
+          <xs:element name="Despatch">
+            <xs:complexType><xs:sequence>
+              <xs:element name="Status" type="xs:string"/>
+              <xs:element name="DeliveryNo" type="xs:string"/>
+              <xs:element name="DespatchDate" type="xs:date" minOccurs="0"/>
+              <xs:element name="Carrier" type="xs:string" minOccurs="0"/>
+              <xs:element name="DeliveredQuantity" type="xs:decimal" minOccurs="0"/>
+              <xs:element name="Unit" type="xs:string" minOccurs="0"/>
+            </xs:sequence></xs:complexType>
+          </xs:element>
+          <xs:element name="Invoice">
+            <xs:complexType><xs:sequence>
+              <xs:element name="Status" type="xs:string"/>
+              <xs:element name="InvoiceNo" type="xs:string"/>
+              <xs:element name="InvoiceDate" type="xs:date" minOccurs="0"/>
+              <xs:element name="NetAmount" type="xs:decimal" minOccurs="0"/>
+              <xs:element name="TaxAmount" type="xs:decimal" minOccurs="0"/>
+              <xs:element name="GrossAmount" type="xs:decimal" minOccurs="0"/>
+              <xs:element name="Currency" type="xs:string" minOccurs="0"/>
+              <xs:element name="PaymentTerms" type="xs:string" minOccurs="0"/>
+            </xs:sequence></xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
