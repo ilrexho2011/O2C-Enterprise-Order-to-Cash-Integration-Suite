@@ -298,6 +298,5 @@ The complete interface catalog: `07_docs/Integration_Catalog_Salt_O2C.md`
 
 ### 12.7 Risks (new)
 
-- `salt/config/Database.php` has **hardcoded credentials** → they should be moved to environment variables.
 - The IDoc→canonical mapping is simplified; a real IDoc requires the `E1EDK*/E1EDP*` segments.
 - Ordering of outbound events: strict ordering requires a queue (JMS/Event Mesh).
