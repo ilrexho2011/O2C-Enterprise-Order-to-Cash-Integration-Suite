@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- DESADV: S/4 (delivery) -> SAP CI -> Salt ERP  (njoftimi i dërgesës) -->
+<OrderEvent xmlns="urn:albsale:o2c:canonical:1.0">
+  <Header>
+    <DocumentType>DESADV</DocumentType>
+    <CorrelationId>SALT-I09345R-000012-a1b2c3d4</CorrelationId>
+    <S4OrderId>0000000123</S4OrderId>
+    <Message>Goods dispatched</Message>
+  </Header>
+  <Reference>
+    <CustomerRef>I09345R</CustomerRef>
+    <SaltOrderRef>12</SaltOrderRef>
+  </Reference>
+  <Despatch>
+    <Status>DELIVERED</Status>
+    <DeliveryNo>DLV-800045</DeliveryNo>
+    <DespatchDate>2026-08-09</DespatchDate>
+    <Carrier>Albsale Logistics</Carrier>
+    <DeliveredQuantity>20</DeliveredQuantity>
+    <Unit>Ton</Unit>
+  </Despatch>
+</OrderEvent>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- INVOIC: S/4 (billing) -> SAP CI -> Salt ERP  (fatura) -->
+<OrderEvent xmlns="urn:albsale:o2c:canonical:1.0">
+  <Header>
+    <DocumentType>INVOIC</DocumentType>
+    <CorrelationId>SALT-I09345R-000012-a1b2c3d4</CorrelationId>
+    <S4OrderId>0000000123</S4OrderId>
+    <Message>Invoice issued</Message>
+  </Header>
+  <Reference>
+    <CustomerRef>I09345R</CustomerRef>
+    <SaltOrderRef>12</SaltOrderRef>
+  </Reference>
+  <Invoice>
+    <Status>INVOICED</Status>
+    <InvoiceNo>INV-900067</InvoiceNo>
+    <InvoiceDate>2026-08-10</InvoiceDate>
+    <NetAmount>19100</NetAmount>
+    <TaxAmount>3820</TaxAmount>
+    <GrossAmount>22920</GrossAmount>
+    <Currency>EU</Currency>
+    <PaymentTerms>NET30</PaymentTerms>
+  </Invoice>
+</OrderEvent>

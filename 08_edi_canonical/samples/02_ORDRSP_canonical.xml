@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ORDRSP: S/4 -> SAP CI -> Salt ERP  (konfirmimi i porosisë)
+     Pranohet nga salt/api/integration/receive_event.php -->
+<OrderEvent xmlns="urn:albsale:o2c:canonical:1.0">
+  <Header>
+    <DocumentType>ORDRSP</DocumentType>
+    <CorrelationId>SALT-I09345R-000012-a1b2c3d4</CorrelationId>
+    <S4OrderId>0000000123</S4OrderId>          <!-- ORDER_ID i gjeneruar në S/4 -->
+    <Message>Order confirmed</Message>
+  </Header>
+  <Reference>
+    <CustomerRef>I09345R</CustomerRef>          <!-- ZINN -->
+    <SaltOrderRef>12</SaltOrderRef>             <!-- idso në salt ERP -->
+  </Reference>
+  <Confirmation>
+    <Status>CONFIRMED</Status>
+    <ConfirmedQuantity>20</ConfirmedQuantity>
+    <Unit>Ton</Unit>
+    <ConfirmedDeliveryDate>2026-08-11</ConfirmedDeliveryDate>
+  </Confirmation>
+</OrderEvent>

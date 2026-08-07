@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ORDERS: Salt ERP -> SAP CI -> S/4  (porosia e klientit)
+     Prodhuar nga salt/lib/canonical.php :: build_orders_canonical() -->
+<OrderCreate xmlns="urn:albsale:o2c:canonical:1.0">
+  <Header>
+    <DocumentType>ORDERS</DocumentType>
+    <CorrelationId>SALT-I09345R-000012-a1b2c3d4</CorrelationId>
+    <SenderId>ALBSALE_SALT</SenderId>
+    <OrderDate>2026-08-04</OrderDate>
+  </Header>
+  <Buyer>
+    <CustomerRef>I09345R</CustomerRef>          <!-- ZINN -> S/4 CUSTOMER_ID -->
+    <Name>Ilirjan Rexho</Name>
+    <Email>ilre@bashkia-vlore.net</Email>
+  </Buyer>
+  <Lines>
+    <Line>
+      <LineNo>0010</LineNo>
+      <ProductRef>13455</ProductRef>            <!-- saltcode -> S/4 PRODUCT_ID -->
+      <Description>Jodiertes Speisesalz</Description>
+      <Quantity>20</Quantity>
+      <Unit>Ton</Unit>
+      <LineValue>19100</LineValue>
+      <Currency>EU</Currency>
+    </Line>
+  </Lines>
+  <Summary>
+    <TotalValue>19100</TotalValue>
+    <Currency>EU</Currency>
+  </Summary>
+</OrderCreate>
