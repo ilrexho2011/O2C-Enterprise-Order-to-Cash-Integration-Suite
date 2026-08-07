@@ -5,6 +5,7 @@
 > **Naming convention:** `ZRC_IR_*` (consistent with the earlier projects `ZRC_IR_QDKEP_CORE`, `ZRC_IR_EMPLOYEE_CORE`).
 
 ---
+<img width="1218" height="687" alt="image" src="https://github.com/user-attachments/assets/dcb4d4a1-639a-4752-afff-29750a5bed33" />
 
 ## 0. Executive summary
 
